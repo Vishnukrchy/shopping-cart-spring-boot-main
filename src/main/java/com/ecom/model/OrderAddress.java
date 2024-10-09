@@ -1,9 +1,6 @@
 package com.ecom.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -21,7 +18,7 @@ public class OrderAddress {
 	private String email;
 
 	private String mobileNo;
-
+    @Column(name = "address")
 	private String address;
 
 	private String city;
