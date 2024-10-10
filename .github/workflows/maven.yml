@@ -1,0 +1,29 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11' 
+          distribution: 'adopt'
+
+      - name: Build with Maven
+        run: mvn clean install
+
+      - name: Run Tests
+        run: mvn test
